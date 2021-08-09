@@ -33,7 +33,11 @@ const SummaryIntentHandler = {
 
         await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         .then((response) => {
-            const data = JSON.parse(response);
+            const elevators = JSON.parse(response);
+
+        await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        .then((response) => {
+            const buildings = JSON.parse(response);
         // const elevators;
         // const buildings;
         // const customers;
@@ -43,7 +47,7 @@ const SummaryIntentHandler = {
         // const quotes;
         // const leads;
 
-         speakOutput = `Greetings! There are currently ${data.length} elevators deployed in the x buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
+         speakOutput = `Greetings! There are currently ${elevators.length} elevators deployed in the ${buildings.length} buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
         })
         .catch((err) => {
             console.log(`ERROR: ${err.message}`);
