@@ -19,7 +19,9 @@
           "name": "SummaryIntent",
           "slots": [],
           "samples": [
-            "summary"
+            "summary",
+            "overview",
+            "what is going on"
           ]
         },
         {

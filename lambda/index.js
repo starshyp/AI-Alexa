@@ -30,9 +30,10 @@ const SummaryIntentHandler = {
     async handle(handlerInput) {
         let speakOut = 'test';
 
-        const elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
+        await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         .then((response) => {
             const data = JSON.parse(response);
+        // const elevators;
         // const buildings;
         // const customers;
         // const elevStatus;
