@@ -31,29 +31,32 @@ const SummaryIntentHandler = {
     async handle(handlerInput) {
         let speakOut = 'test';
 
-        await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
-        .then((response) => {
-            const elevators = JSON.parse(response);
+        // let elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
+        // .then((response) => {
+        //     const elevators = JSON.parse(response);
 
-        await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-        .then((response) => {
-            const buildings = JSON.parse(response);
-        // const elevators;
-        // const buildings;
-        // const customers;
-        // const elevStatus;
-        // const batteries;
-        // const cities;
-        // const quotes;
-        // const leads;
+        let elevators = await JSON.parse(getRemoteData('https://rocketapis.azurewebsites.net/api/elevators'))
+        let buildings = await JSON.parse(getRemoteData('https://rocketapis.azurewebsites.net/api/building'))
+        // let customers = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        // let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        // let batteries = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        // let cities = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        // let quotes = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        // let leads = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+
+        
+        
+
+        // .then((response) => {
+        //     const buildings = JSON.parse(response);
 
          speakOutput = `Greetings! There are currently ${elevators.length} elevators deployed in the ${buildings.length} buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
-        })
-        .catch((err) => {
-            console.log(`ERROR: ${err.message}`);
-            // set an optional error message here
-            // outputSpeech = err.message;
-          });
+        // })
+        // .catch((err) => {
+        //     console.log(`ERROR: ${err.message}`);
+        //     // set an optional error message here
+        //     // outputSpeech = err.message;
+        //   });
     
 
         return handlerInput.responseBuilder
