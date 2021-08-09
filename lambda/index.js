@@ -33,15 +33,15 @@ const SummaryIntentHandler = {
         const elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         .then((response) => {
             const data = JSON.parse(response);
-        const buildings;
-        const customers;
-        const elevStatus;
-        const batteries;
-        const cities;
-        const quotes;
-        const leads;
+        // const buildings;
+        // const customers;
+        // const elevStatus;
+        // const batteries;
+        // const cities;
+        // const quotes;
+        // const leads;
 
-        const speakOutput = `Greetings! There are currently ${data.length} elevators deployed in the XXX buildings of your XXX customers. Currently, XXX elevators are not in Running Status and are being serviced. XXX Batteries are deployed across XXX cities. On another note you currently have XXX quotes awaiting processing. You also have XXX leads in your contact requests.`;
+        const speakOutput = `Greetings! There are currently ${data.length} elevators deployed in the x buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
         });
 
         return handlerInput.responseBuilder
