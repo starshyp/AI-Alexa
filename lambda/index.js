@@ -19,13 +19,30 @@ const LaunchRequestHandler = {
     }
 };
 
+//ref: https://dabblelab.com/templates/2-alexa-remote-api-example-skill
 const SummaryIntentHandler = {
     canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
+        // return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+        //     && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
+        return (handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
     },
-    handle(handlerInput) {
-        const speakOutput = 'Greetings!';
+    async handle(handlerInput) {
+        let speakOut;
+
+        const elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
+        .then((response) => {
+            const data = JSON.parse(response);
+        const buildings;
+        const customers;
+        const elevStatus;
+        const batteries;
+        const cities;
+        const quotes;
+        const leads;
+
+        const speakOutput = `Greetings! There are currently ${data.length} elevators deployed in the XXX buildings of your XXX customers. Currently, XXX elevators are not in Running Status and are being serviced. XXX Batteries are deployed across XXX cities. On another note you currently have XXX quotes awaiting processing. You also have XXX leads in your contact requests.`;
+        });
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -150,6 +167,21 @@ const ErrorHandler = {
             .getResponse();
     }
 };
+
+const getRemoteData = (url) => new Promise((resolve, reject) => {
+    const client = url.startsWith('https') ? require('https') : require('http');
+    const request = client.get(url, (response) => {
+      if (response.statusCode < 200 || response.statusCode > 299) {
+        reject(new Error(`Failed with status code: ${response.statusCode}`));
+      }
+      const body = [];
+      response.on('data', (chunk) => body.push(chunk));
+      response.on('end', () => resolve(body.join('')));
+    });
+    request.on('error', (err) => reject(err));
+  });
+  
+  const skillBuilder = Alexa.SkillBuilders.custom();
 
 /**
  * This handler acts as the entry point for your skill, routing all request and response
