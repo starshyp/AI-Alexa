@@ -24,9 +24,6 @@ const SummaryIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
-        // return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
-        // || (handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        // && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
     },
     async handle(handlerInput) {
         let speakOut = 'test';
@@ -39,20 +36,23 @@ const SummaryIntentHandler = {
         let elevatorsParsed = JSON.parse(elevators)
         let buildings = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
         let buildingsParsed = JSON.parse(buildings)
-        // let customers = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-        // let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-        // let batteries = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-        // let cities = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-        // let quotes = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-        // let leads = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
-
-        
-        
+        let customers = await getRemoteData('https://rocketapis.azurewebsites.net/api/customer')
+        let customersParsed = JSON.parse(customers)
+        let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/notactive')
+        let elevStatusParsed = JSON.parse(elevStatus)
+        let batteries = await getRemoteData('https://rocketapis.azurewebsites.net/api/batteries')
+        let batteriesParsed = JSON.parse(batteries)
+        let cities = await getRemoteData('https://rocketapis.azurewebsites.net/api/address/city')
+        let citiesParsed = JSON.parse(cities)
+        let quotes = await getRemoteData('https://rocketapis.azurewebsites.net/api/quotes')
+        let quotesParsed = JSON.parse(quotes)
+        let leads = await getRemoteData('https://rocketapis.azurewebsites.net/api/lead')
+        let leadsParsed = JSON.parse(leads)
 
         // .then((response) => {
         //     const buildings = JSON.parse(response);
 
-         speakOutput = `Greetings! There are currently ${elevatorsParsed.length} elevators deployed in the ${buildingsParsed.length} buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
+         speakOutput = `Greetings! There are currently ${elevatorsParsed.length} elevators deployed in the ${buildingsParsed.length} buildings of your ${customersParsed.length} customers. Currently, ${elevStatusParsed.length} elevators are not in Running Status and are being serviced. ${batteriesParsed.length} Batteries are deployed across ${citiesParsed} cities. On another note you currently have ${quotesParsed.length} quotes awaiting processing. You also have ${leadsParsed.length} leads in your contact requests.`;
         // })
         // .catch((err) => {
         //     console.log(`ERROR: ${err.message}`);
@@ -60,7 +60,6 @@ const SummaryIntentHandler = {
         //     // outputSpeech = err.message;
         //   });
     
-
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
