@@ -35,8 +35,10 @@ const SummaryIntentHandler = {
         // .then((response) => {
         //     const elevators = JSON.parse(response);
 
-        let elevators = await JSON.parse(getRemoteData('https://rocketapis.azurewebsites.net/api/elevators'))
-        let buildings = await JSON.parse(getRemoteData('https://rocketapis.azurewebsites.net/api/building'))
+        let elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
+        let elevatorsParsed = JSON.parse(elevators)
+        let buildings = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
+        let buildingsParsed = JSON.parse(buildings)
         // let customers = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
         // let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
         // let batteries = await getRemoteData('https://rocketapis.azurewebsites.net/api/building')
@@ -50,7 +52,7 @@ const SummaryIntentHandler = {
         // .then((response) => {
         //     const buildings = JSON.parse(response);
 
-         speakOutput = `Greetings! There are currently ${elevators.length} elevators deployed in the ${buildings.length} buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
+         speakOutput = `Greetings! There are currently ${elevatorsParsed.length} elevators deployed in the ${buildingsParsed.length} buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
         // })
         // .catch((err) => {
         //     console.log(`ERROR: ${err.message}`);
