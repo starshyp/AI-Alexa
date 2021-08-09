@@ -22,11 +22,11 @@ const LaunchRequestHandler = {
 //ref: https://dabblelab.com/templates/2-alexa-remote-api-example-skill
 const SummaryIntentHandler = {
     canHandle(handlerInput) {
-        // return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-        //     && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
-        return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
-        || (handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
+        // return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+        // || (handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        // && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
     },
     async handle(handlerInput) {
         let speakOut = 'test';
