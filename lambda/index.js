@@ -24,7 +24,8 @@ const SummaryIntentHandler = {
     canHandle(handlerInput) {
         // return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
         //     && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
-        return (handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+        || (handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
     },
     async handle(handlerInput) {
@@ -42,7 +43,7 @@ const SummaryIntentHandler = {
         // const quotes;
         // const leads;
 
-        const speakOutput = `Greetings! There are currently x elevators deployed in the x buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
+        const speakOutput = `Greetings! There are currently ${data.length} elevators deployed in the x buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
         })
         .catch((err) => {
             console.log(`ERROR: ${err.message}`);
