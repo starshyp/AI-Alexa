@@ -16,6 +16,13 @@
           "samples": []
         },
         {
+          "name": "SummaryIntent",
+          "slots": [],
+          "samples": [
+            "summary"
+          ]
+        },
+        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [
