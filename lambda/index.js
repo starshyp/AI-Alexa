@@ -22,13 +22,13 @@ const LaunchRequestHandler = {
 //ref: https://dabblelab.com/templates/2-alexa-remote-api-example-skill
 const SummaryIntentHandler = {
     canHandle(handlerInput) {
-        // return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-        //     && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
-        return (handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
+        // return (handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        // && handlerInput.requestEnvelope.request.intent.name === 'SummaryIntent');
     },
     async handle(handlerInput) {
-        let speakOut;
+        let speakOut = 'test';
 
         const elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         .then((response) => {
@@ -42,7 +42,13 @@ const SummaryIntentHandler = {
         // const leads;
 
         const speakOutput = `Greetings! There are currently ${data.length} elevators deployed in the x buildings of your x customers. Currently, x elevators are not in Running Status and are being serviced. x Batteries are deployed across x cities. On another note you currently have x quotes awaiting processing. You also have x leads in your contact requests.`;
-        });
+        })
+        .catch((err) => {
+            console.log(`ERROR: ${err.message}`);
+            // set an optional error message here
+            // outputSpeech = err.message;
+          });
+    
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
