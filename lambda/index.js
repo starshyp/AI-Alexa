@@ -73,12 +73,13 @@ const ElevatorStatusIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ElevatorStatusIntent';
     },
     async handle(handlerInput) {
-        let speakOut = 'test';
+        let speakOutput = 'test';
         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
-        let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
+        
+        await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
             .then((response) => {
             let elevStatusParsed = JSON.parse(response);
-            speakOut = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`
+            speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`
         })
         .catch((err) => {
             console.log(`ERROR: ${err.message}`);
