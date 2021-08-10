@@ -76,10 +76,10 @@ const ElevatorStatusIntentHandler = {
         let speakOutput = 'test';
         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
 
-        let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId).status
+        let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
             // .then((elevStatus) => {
             let elevStatusParsed = JSON.parse(elevStatus);
-            speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed}.`
+            speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`;
         // })
         // .catch((err) => {
         //     console.log(`ERROR: ${err.message}`);
@@ -234,6 +234,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
         SummaryIntentHandler,
+        ElevatorStatusIntentHandler,
         HelloWorldIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
