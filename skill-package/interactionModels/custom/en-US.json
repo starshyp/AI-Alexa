@@ -39,6 +39,19 @@
           ]
         },
         {
+          "name": "QuoteTypeIntent",
+          "slots": [
+            {
+              "name": "bType",
+              "type": "AMAZON.CivicStructure"
+            }
+          ],
+          "samples": [
+            "how many {bType} quotes do we have",
+            "how many {bType} quotes are there"
+          ]
+        },
+        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [

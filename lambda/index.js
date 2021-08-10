@@ -93,31 +93,37 @@ const ElevatorStatusIntentHandler = {
     }
 };
 
-// const QuoteTypeIntentHandler = {
-//     canHandle(handlerInput) {
-//         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-//             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ElevatorStatusIntent';
-//     },
-//     async handle(handlerInput) {
-//         let speakOutput = null;
-//         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
+const QuoteTypeIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'QuoteTypeIntent';
+    },
+    async handle(handlerInput) {
+        let speakOutput = null;
+        let bType = handlerInput.requestEnvelope.request.intent.slots.bType.value;
 
-//         let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
-//             // .then((elevStatus) => {
-//             let elevStatusParsed = JSON.parse(elevStatus);
-//             speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`;
-//         // })
-//         // .catch((err) => {
-//         //     console.log(`ERROR: ${err.message}`);
-//         //     // set an optional error message here
-//         //     // outputSpeech = err.message;
-//         //   });
-//         return handlerInput.responseBuilder
-//             .speak(speakOutput)
-//             .reprompt()
-//             .getResponse();
-//     }
-// };
+        await getRemoteData('https://rocketapis.azurewebsites.net/api/quotes/')
+            .then((response) => {
+            let quoteTypeParsed = JSON.parse(response);
+
+                if (bType == quoteTypeParsed.buildingType) {
+                    speakOutput = `There are ${quoteTypeParsed.buildingType.length} ${bType} quotes.`;
+                } else {
+                    speakOutput = `Please specify Commercial, Residential, or Hybrid.`;
+                }
+            // speakOutput = `There are ${quoteTypeParsed.length} ${bType} quotes.`;
+            })
+            .catch((err) => {
+                console.log(`ERROR: ${err.message}`);
+                // set an optional error message here
+                // outputSpeech = err.message;
+            });
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
 
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
@@ -261,6 +267,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         SummaryIntentHandler,
         ElevatorStatusIntentHandler,
+        QuoteTypeIntentHandler,
         HelloWorldIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
