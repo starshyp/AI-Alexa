@@ -76,22 +76,48 @@ const ElevatorStatusIntentHandler = {
         let speakOutput = null;
         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
 
-        let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
-            // .then((elevStatus) => {
-            let elevStatusParsed = JSON.parse(elevStatus);
+        await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
+            .then((response) => {
+            let elevStatusParsed = JSON.parse(response);
             speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`;
-        // })
-        // .catch((err) => {
-        //     console.log(`ERROR: ${err.message}`);
-        //     // set an optional error message here
-        //     // outputSpeech = err.message;
-        //   });
+        })
+            .catch((err) => {
+                console.log(`ERROR: ${err.message}`);
+                // set an optional error message here
+                // outputSpeech = err.message;
+            });
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt()
             .getResponse();
     }
 };
+
+// const QuoteTypeIntentHandler = {
+//     canHandle(handlerInput) {
+//         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+//             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ElevatorStatusIntent';
+//     },
+//     async handle(handlerInput) {
+//         let speakOutput = null;
+//         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
+
+//         let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
+//             // .then((elevStatus) => {
+//             let elevStatusParsed = JSON.parse(elevStatus);
+//             speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`;
+//         // })
+//         // .catch((err) => {
+//         //     console.log(`ERROR: ${err.message}`);
+//         //     // set an optional error message here
+//         //     // outputSpeech = err.message;
+//         //   });
+//         return handlerInput.responseBuilder
+//             .speak(speakOutput)
+//             .reprompt()
+//             .getResponse();
+//     }
+// };
 
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
