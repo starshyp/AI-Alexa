@@ -75,11 +75,11 @@ const ElevatorStatusIntentHandler = {
     async handle(handlerInput) {
         let speakOutput = 'test';
         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
-        
-        await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
+
+        await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId).status
             .then((response) => {
             let elevStatusParsed = JSON.parse(response);
-            speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`
+            speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed}.`
         })
         .catch((err) => {
             console.log(`ERROR: ${err.message}`);
