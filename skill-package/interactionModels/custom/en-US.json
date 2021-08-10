@@ -26,6 +26,18 @@
           ]
         },
         {
+          "name": "ElevatorStatusIntent",
+          "slots": [
+            {
+              "name": "elevId",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "what is the status of elevator {id}"
+          ]
+        },
+        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [

@@ -30,7 +30,7 @@ const SummaryIntentHandler = {
 
         // let elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         // .then((response) => {
-        //     const elevators = JSON.parse(response);
+        //     let elevators = JSON.parse(response);
 
         let elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         let elevatorsParsed = JSON.parse(elevators)
@@ -50,7 +50,7 @@ const SummaryIntentHandler = {
         let leadsParsed = JSON.parse(leads)
 
         // .then((response) => {
-        //     const buildings = JSON.parse(response);
+        //     let buildings = JSON.parse(response);
 
          speakOutput = `Greetings! There are currently ${elevatorsParsed.length} elevators deployed in the ${buildingsParsed.length} buildings of your ${customersParsed.length} customers. Currently, ${elevStatusParsed.length} elevators are not in Running Status and are being serviced. ${batteriesParsed.length} Batteries are deployed across ${citiesParsed} cities. On another note you currently have ${quotesParsed.length} quotes awaiting processing. You also have ${leadsParsed.length} leads in your contact requests.`;
         // })
@@ -60,6 +60,31 @@ const SummaryIntentHandler = {
         //     // outputSpeech = err.message;
         //   });
     
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+
+const ElevatorStatusIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ElevatorStatusIntent';
+    },
+    async handle(handlerInput) {
+        let speakOut = 'test';
+        let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
+        let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
+            .then((response) => {
+            let elevStatusParsed = JSON.parse(response);
+            speakOut = `The status of elevator ${elevId} is ${elevStatusParsed.status}.`
+        })
+        .catch((err) => {
+            console.log(`ERROR: ${err.message}`);
+            // set an optional error message here
+            // outputSpeech = err.message;
+          });
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
