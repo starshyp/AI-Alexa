@@ -34,7 +34,8 @@
             }
           ],
           "samples": [
-            "what is the status of elevator {id}"
+            "what is the status of elevator {elevId}",
+            "status of {elevId}"
           ]
         },
         {
