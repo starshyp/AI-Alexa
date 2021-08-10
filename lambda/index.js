@@ -105,7 +105,7 @@ const QuoteTypeIntentHandler = {
         await getRemoteData('https://rocketapis.azurewebsites.net/api/quotes/' + bType)
             .then((response) => {
             let quoteTypeParsed = JSON.parse(response);
-                if (bType === quoteTypeParsed.buildingType) {
+                if (bType === quoteTypeParsed.buildingType.value) {
                     speakOutput = `There are ${quoteTypeParsed.length} ${bType} quotes.`;
                 } else {
                     speakOutput = `Please specify commercial, residential, or hybrid.`;
