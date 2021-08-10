@@ -106,7 +106,7 @@ const QuoteTypeIntentHandler = {
             .then((response) => {
             let quoteTypeParsed = JSON.parse(response);
                 // if (bType === quoteTypeParsed.buildingType) {
-                    speakOutput = `There are ${quoteTypeParsed.buildingType.length} ${bType} quotes.`;
+                    speakOutput = `There are ${quoteTypeParsed.length} ${bType} quotes.`;
                 // } else {
                 //     speakOutput = `Please specify commercial, residential, or hybrid.`;
                 // }
