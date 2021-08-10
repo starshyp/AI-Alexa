@@ -22,8 +22,7 @@ const LaunchRequestHandler = {
 //ref: https://dabblelab.com/templates/2-alexa-remote-api-example-skill
 const SummaryIntentHandler = {
     canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest' ||
-         Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
     },
     async handle(handlerInput) {
