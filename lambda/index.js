@@ -26,7 +26,7 @@ const SummaryIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'SummaryIntent';
     },
     async handle(handlerInput) {
-        let speakOut = 'test';
+        let speakOutput = null;
 
         // let elevators = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators')
         // .then((response) => {
@@ -73,7 +73,7 @@ const ElevatorStatusIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ElevatorStatusIntent';
     },
     async handle(handlerInput) {
-        let speakOutput = 'test';
+        let speakOutput = null;
         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
 
         let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId)
