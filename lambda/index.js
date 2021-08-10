@@ -77,15 +77,15 @@ const ElevatorStatusIntentHandler = {
         let elevId = handlerInput.requestEnvelope.request.intent.slots.elevId.value;
 
         let elevStatus = await getRemoteData('https://rocketapis.azurewebsites.net/api/elevators/' + elevId).status
-            .then((elevStatus) => {
+            // .then((elevStatus) => {
             let elevStatusParsed = JSON.parse(elevStatus);
             speakOutput = `The status of elevator ${elevId} is ${elevStatusParsed}.`
-        })
-        .catch((err) => {
-            console.log(`ERROR: ${err.message}`);
-            // set an optional error message here
-            // outputSpeech = err.message;
-          });
+        // })
+        // .catch((err) => {
+        //     console.log(`ERROR: ${err.message}`);
+        //     // set an optional error message here
+        //     // outputSpeech = err.message;
+        //   });
         return handlerInput.responseBuilder
             .speak(speakOutput)
             //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
