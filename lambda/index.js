@@ -84,7 +84,7 @@ const ElevatorStatusIntentHandler = {
             .catch((err) => {
                 console.log(`ERROR: ${err.message}`);
                 // set an optional error message here
-                // outputSpeech = err.message;
+                speakOutput = "You specified a number greater than the number of elevators deployed.";
             });
         return handlerInput.responseBuilder
             .speak(speakOutput)
