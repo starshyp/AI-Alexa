@@ -115,7 +115,7 @@ const QuoteTypeIntentHandler = {
             .catch((err) => {
                 console.log(`ERROR: ${err.message}`);
                 // set an optional error message here
-                // outputSpeech = err.message;
+                speakOutput = 'Please specify commercial, residential, or hybrid.';
             });
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -141,7 +141,7 @@ const InterventionIntentHandler = {
             .catch((err) => {
                 console.log(`ERROR: ${err.message}`);
                 // set an optional error message here
-                speakOutput = "Please specify 'pending or 'inprogress'";
+                speakOutput = "Please specify 'pending' or 'inprogress'.";
             });
         return handlerInput.responseBuilder
             .speak(speakOutput)
