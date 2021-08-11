@@ -10,7 +10,7 @@
             "what is the status of elevator x"
           ],
           "keywords": [],
-          "name": "RocketElevators",
+          "name": "RocketElevators-Colby",
           "description": "Get information about the status of elevators and an overview of the current state of rocket elevators. Plus additional commands.",
           "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
           "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
