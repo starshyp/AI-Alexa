@@ -141,7 +141,7 @@ const InterventionIntentHandler = {
             .catch((err) => {
                 console.log(`ERROR: ${err.message}`);
                 // set an optional error message here
-                // outputSpeech = err.message;
+                speakOutput = "Please specify 'pending or 'inprogress'";
             });
         return handlerInput.responseBuilder
             .speak(speakOutput)
