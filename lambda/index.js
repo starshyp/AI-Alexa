@@ -150,6 +150,32 @@ const InterventionIntentHandler = {
     }
 };
 
+// const CryptoIntentHandler = {
+//     canHandle(handlerInput) {
+//         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+//             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'InterventionIntent';
+//     },
+//     async handle(handlerInput) {
+//         let speakOutput = null;
+//         let iStatus = handlerInput.requestEnvelope.request.intent.slots.iStatus.value;
+
+//         await getRemoteData('https://rocketapis.azurewebsites.net/api/interventions/' + iStatus)
+//             .then((response) => {
+//             let iStatusParsed = JSON.parse(response);
+//             speakOutput = `There are currently ${iStatusParsed.length} ${iStatus} interventions.`;
+//             })
+//             .catch((err) => {
+//                 console.log(`ERROR: ${err.message}`);
+//                 // set an optional error message here
+//                 speakOutput = "Please specify 'pending' or 'inprogress'.";
+//             });
+//         return handlerInput.responseBuilder
+//             .speak(speakOutput)
+//             .reprompt()
+//             .getResponse();
+//     }
+// };
+
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
