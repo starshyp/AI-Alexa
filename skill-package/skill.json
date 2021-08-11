@@ -1,5 +1,29 @@
 {
   "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "The future is now!",
+          "examplePhrases": [
+            "Alexa, launch rocket elevators",
+            "what is going on at rocket elevators",
+            "what is the status of elevator x"
+          ],
+          "keywords": [],
+          "name": "RocketElevators",
+          "description": "Get information about the status of elevators and an overview of the current state of rocket elevators. Plus additional commands.",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        }
+      },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "there are no special instructions",
+      "category": "BUSINESS_AND_FINANCE",
+      "distributionCountries": []
+    },
     "apis": {
       "custom": {
         "endpoint": {
@@ -24,12 +48,15 @@
         }
       }
     },
-    "publishingInformation": {
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
       "locales": {
-        "en-US": {
-          "name": "RocketElevators"
-        }
-      }
+        "en-US": {}
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
     }
   }
 }
