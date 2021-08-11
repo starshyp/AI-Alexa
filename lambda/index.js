@@ -150,31 +150,55 @@ const InterventionIntentHandler = {
     }
 };
 
-// const CryptoIntentHandler = {
-//     canHandle(handlerInput) {
-//         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-//             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'InterventionIntent';
-//     },
-//     async handle(handlerInput) {
-//         let speakOutput = null;
-//         let iStatus = handlerInput.requestEnvelope.request.intent.slots.iStatus.value;
+const CryptoIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'InterventionIntent';
+    },
+    async handle(handlerInput) {
+        let speakOutput = null;
+        // let crypto = handlerInput.requestEnvelope.request.intent.slots.crypto.value;
+        const requestOptions = {
+            method: 'GET',
+            uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+            qs: {
+              'start': '1',
+              'limit': '5000',
+              'convert': 'USD'
+            },
+            headers: {
+              'X-CMC_PRO_API_KEY': '9d30f385-6bb2-418e-81e0-fb1a3070fee2'
+            },
+            json: true,
+            gzip: true
+          };
 
-//         await getRemoteData('https://rocketapis.azurewebsites.net/api/interventions/' + iStatus)
-//             .then((response) => {
-//             let iStatusParsed = JSON.parse(response);
-//             speakOutput = `There are currently ${iStatusParsed.length} ${iStatus} interventions.`;
-//             })
-//             .catch((err) => {
-//                 console.log(`ERROR: ${err.message}`);
-//                 // set an optional error message here
-//                 speakOutput = "Please specify 'pending' or 'inprogress'.";
-//             });
-//         return handlerInput.responseBuilder
-//             .speak(speakOutput)
-//             .reprompt()
-//             .getResponse();
-//     }
-// };
+        await getRemoteData(requestOptions)
+            .then((response) => {
+            let cryptoParsed = JSON.parse(response);
+            
+            speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name} at a price of ${cryptoParsed.data[0].quote.USD.price}, ${cryptoParsed.data[1].name} at a price of ${cryptoParsed.data[1].quote.USD.price}, and ${cryptoParsed.data[2].name} at a price of ${cryptoParsed.data[2].quote.USD.price}.`;
+            // for (let i = 0; i < data.length; i += 1) {
+            //     if (crypto === cryptoParsed.data[i].name) {
+            //       speakOutput = `The current price of ${cryptoParsed.data[i].name} is ${cryptoParsed.data[i].quote.USD.price}.`;
+            //     } else if (i === data.length - 1) {
+            //       speakOutput = ``;
+            //     } else {
+            //       speakOutput = `Please specify a coin in the marketplace.`;
+            //     }
+            //   }
+            })
+            .catch((err) => {
+                console.log(`ERROR: ${err.message}`);
+                // set an optional error message here
+                speakOutput = "Please specify 'bitcoin', 'ethereum', or 'dogecoin'.";
+            });
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
 
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
@@ -320,6 +344,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         ElevatorStatusIntentHandler,
         QuoteTypeIntentHandler,
         InterventionIntentHandler,
+        CryptoIntentHandler,
         HelloWorldIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
