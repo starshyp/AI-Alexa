@@ -37,10 +37,13 @@ To test on your mobile, download the Alexa app and follow these steps:
 - Link to contract API repo: [Rocket Elevators Foundation - REST API](https://github.com/starshyp/Rocket-Elevators-Foundation-REST-API)
 
 ### previews:
+#### skills > your skills
 ![](https://lh3.googleusercontent.com/pw/AM-JKLUNBUakiN_wJe6-mN7w5kWZnESJ8lrwuFS7qtrajJDgWMEKrTzKoB2oOmMoK8sJa53X8RDnrcmZvTRScREknio_mKm9BygldmfQIxdzZy0Tgn2XSKLfRV86NUMuR2e6CIESCcBG506owID5FgC5-i-L=w1365-h857-no)
 
+#### dev skill > click on skill
 ![](https://lh3.googleusercontent.com/pw/AM-JKLUoA6ftOtDMd5M0hmpYcnixsC5g97Cisg6VvR4x63FJUgdoXFTgAADghyKYF_qjcfFAft7lL6awQVokFPjgjbPzmGu8bzQyVZ7S-WuOb5FgKlng0C36xvvuf3TziXp5o9V0GD7trZP9xUATHK0z43Rl=w1302-h594-no)
 
+#### will say enable skill > click on the button
 ![](https://lh3.googleusercontent.com/pw/AM-JKLUT_eZjLlFa8bgKtEc4p6hJuStvceI1pT_kkrDas4Ms3Gx0rGjZikb4H7wLZ6AWZrKubIap7RH46s7lNOQkWOf8zmQzI9liOYQYvt3DA3485gMDmzMtCQbGrICbzSfNuJ9rDYxArnn1MMfo1vCPTCGd=w1339-h652-no)
 
 #### all voice commands - results
