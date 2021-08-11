@@ -52,6 +52,19 @@
           ]
         },
         {
+          "name": "InterventionIntent",
+          "slots": [
+            {
+              "name": "iStatus",
+              "type": "AMAZON.RelativePosition"
+            }
+          ],
+          "samples": [
+            "how many {iStatus} interventions do we have",
+            "how many {iStatus} interventions are there"
+          ]
+        },
+        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [
