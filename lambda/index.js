@@ -344,7 +344,6 @@ exports.handler = Alexa.SkillBuilders.custom()
         ElevatorStatusIntentHandler,
         QuoteTypeIntentHandler,
         InterventionIntentHandler,
-        CryptoIntentHandler,
         HelloWorldIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,

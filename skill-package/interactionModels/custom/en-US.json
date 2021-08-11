@@ -65,19 +65,6 @@
           ]
         },
         {
-          "name": "CryptoIntent",
-          "slots": [
-            {
-              "name": "crypto",
-              "type": "AMAZON.SoftwareApplication"
-            }
-          ],
-          "samples": [
-            "what are the top 3 cryptocurrencies",
-            "what is the current price of {crypto}"
-          ]
-        },
-        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [
