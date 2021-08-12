@@ -7,8 +7,7 @@ The ability to get information on the status of Rocket Elevators operations via 
 ### How to use (Beta test)
 
 ```bash
-To test on your mobile, download the Alexa app and follow these steps:
-(see screenshots below for step by step)
+To test on your mobile, or echo device follow these steps (scroll down for screenshots):
 - click on the link in the email invite to enable new skill 'RocketElevators-Colby'
 - sign in to your amazon or create a new account
 - a pop up should appear asking you to add the new skill
@@ -24,13 +23,13 @@ To test on your mobile, download the Alexa app and follow these steps:
 ```
 
 ### Voice Commands
-1. launch rocket elevators
-2. what is going on at rocket elevators
+1. "launch rocket elevators"
+2. "what is going on at rocket elevators"
 
 #### Bonus (continue from above)
-1. what is the status of elevator {1-600}
-2. how many {commercial/residential/hybrid} quotes do we have
-3. how many {pending/inprogress} interventions do we have
+1. "what is the status of elevator {1-600}"
+2. "how many {commercial/residential/hybrid} quotes do we have"
+3. "how many {pending/inprogress} interventions are there"
 
 ### Notes
 - Additional API endpoints were setup
