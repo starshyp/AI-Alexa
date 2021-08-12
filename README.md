@@ -55,6 +55,9 @@ To test on your mobile, download the Alexa app and follow these steps:
 #### will say enable skill > click on the button
 ![](https://lh3.googleusercontent.com/pw/AM-JKLUT_eZjLlFa8bgKtEc4p6hJuStvceI1pT_kkrDas4Ms3Gx0rGjZikb4H7wLZ6AWZrKubIap7RH46s7lNOQkWOf8zmQzI9liOYQYvt3DA3485gMDmzMtCQbGrICbzSfNuJ9rDYxArnn1MMfo1vCPTCGd=w1339-h652-no)
 
+#### alexa, launch rocket elevators
+![](https://m.media-amazon.com/images/G/01/alexa/alexa-app/2640_AlexaApp_Desktop.jpg)
+
 #### all voice commands - results
 ![](https://lh3.googleusercontent.com/pw/AM-JKLWsGg04GKhiDs-5BThW78no4NlScUQ-kSkfTtyOs1mIuacxRiB6ZXA47px9nWVbCtYFlV6mGEk12EJvWM-CYM8VCINNaoTe4Cx_-QuF8Ank-bEdispR_R6-SplMpc99G1w_xxRaZPFY_kpjwgpK8vDC=w426-h1123-no)
 
