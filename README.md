@@ -8,14 +8,14 @@ The ability to get information on the status of Rocket Elevators operations via 
 
 ```bash
 To test on your mobile, download the Alexa app and follow these steps:
-
-- accept email invite to beta test new Alexa skill 'RocketElevators-Colby'
-- click on the link in the email to enable the skill
+(see screenshots below for step by step)
+- click on the link in the email invite to enable new skill 'RocketElevators-Colby'
 - sign in to your amazon or create a new account
-- scroll all the way down to 'skip' or 'cancel' device setup
-- on the new page, click on 'skills' then 'your skills' (1st screenshot below)
-- click on 'DEV SKILL' (2nd screenshot below)
-- enable the skill (3rd screenshot below)
+- a pop up should appear asking you to add the new skill
+- scroll all the way down to 'skip' device setup
+- on the new page, click on 'skills' then 'your skills'
+- click on 'DEV SKILL'
+- enable the skill 
 
 - download the Alexa app on your mobile device
 - sign in using the same account above
@@ -37,6 +37,15 @@ To test on your mobile, download the Alexa app and follow these steps:
 - Link to contract API repo: [Rocket Elevators Foundation - REST API](https://github.com/starshyp/Rocket-Elevators-Foundation-REST-API)
 
 ### previews:
+#### email invite
+![](https://lh3.googleusercontent.com/pw/AM-JKLXw23TdG51ufl-F3fm7OYlFT8qGV1wh85nGU2XuHkOxEAEozZANgBKsESv7TBWtbiARjhiEwBAGYSCsUfCHtQtTWZUf4D0art_Yp0kYWgqRemBfq4znuo9FFlKpPpoPJhc2f_OlNu56u89sHSw_J3bJ=w910-h345-no)
+
+#### sign in
+![](https://lh3.googleusercontent.com/pw/AM-JKLXg11s0EDCxFbo74ICV1xyVFTZYhn6OeKXhDByZpQmP0_v6isYURwDy52k1hZvIA5gS8d37YyklS4cRXEDg5zAtfsglJkoqgbRTTJ_Lu_QXY0abIfKYx2yAYDI3wnte-SVkMU_bOEF432O1RxE65b-0=w830-h659-no)
+
+#### add skill - accept
+![](https://lh3.googleusercontent.com/pw/AM-JKLVgJhatGuqjwcGbdj9FYtLVOGvNRymPHQA1Tj49HA83t696TTYXsCS6JiTHV7uEvA987FFGpfhcovB7NSX8FtNQkDqpZZWflfwifI2HSopZ4zRgAorXAg5bJ1N_94R_wAJvE5aLjYJcZR9N_R2BZQtZ=w1381-h571-no)
+
 #### skills > your skills
 ![](https://lh3.googleusercontent.com/pw/AM-JKLUNBUakiN_wJe6-mN7w5kWZnESJ8lrwuFS7qtrajJDgWMEKrTzKoB2oOmMoK8sJa53X8RDnrcmZvTRScREknio_mKm9BygldmfQIxdzZy0Tgn2XSKLfRV86NUMuR2e6CIESCcBG506owID5FgC5-i-L=w1365-h857-no)
 
