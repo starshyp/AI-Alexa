@@ -34,7 +34,7 @@ To test on your mobile, download the Alexa app and follow these steps:
 
 ### Notes
 - Additional API endpoints were setup
-- Link to contract API repo: [Rocket Elevators Foundation - REST API](https://github.com/starshyp/Rocket-Elevators-Foundation-REST-API)
+- Link to API repo: [Rocket Elevators Foundation - REST API](https://github.com/starshyp/Rocket-Elevators-Foundation-REST-API)
 
 ### previews:
 #### email invite
