@@ -177,9 +177,15 @@ const CryptoIntentHandler = {
             .then((response) => {
             let cryptoParsed = JSON.parse(response);
             
-            // speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name} at a price of ${cryptoParsed.data[0].quote.USD.price}, ${cryptoParsed.data[1].name} at a price of ${cryptoParsed.data[1].quote.USD.price}, and ${cryptoParsed.data[2].name} at a price of ${cryptoParsed.data[2].quote.USD.price}.`;
+            let price1 = parseFloat(cryptoParsed.data[0].quote.USD.price).toLocaleString('en-US', 
+            {
+                style: 'currency',
+                currency: 'USD',
+              });
+            speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name} at a price of ${price1}, ${cryptoParsed.data[1].name} at a price of ${cryptoParsed.data[1].quote.USD.price}, and ${cryptoParsed.data[2].name} at a price of ${cryptoParsed.data[2].quote.USD.price}.`;
 
-            speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name}, ${cryptoParsed.data[1].name}, and ${cryptoParsed.data[2].name}.`;
+            // speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name}, ${cryptoParsed.data[1].name}, and ${cryptoParsed.data[2].name}.`;
+            
             // for (let i = 0; i < data.length; i += 1) {
             //     if (crypto === cryptoParsed.data[i].name) {
             //       speakOutput = `The current price of ${cryptoParsed.data[i].name} is ${cryptoParsed.data[i].quote.USD.price}.`;
