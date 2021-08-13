@@ -66,11 +66,18 @@
         },
         {
           "name": "CryptoIntent",
-          "slots": [],
+          "slots": [
+            {
+              "name": "crypto",
+              "type": "AMAZON.Service"
+            }
+          ],
           "samples": [
             "what are the top three cryptos",
             "what are the top three cryptocurrencies",
-            "what are the top three cryptos by market cap"
+            "what are the top three cryptos by market cap",
+            "what is the price of {crypto}",
+            "{crypto}"
           ]
         },
         {
