@@ -75,22 +75,7 @@
           "samples": [
             "what are the top three cryptos",
             "what are the top three cryptocurrencies",
-            "what are the top three cryptos by market cap",
-            "what is the price of {crypto}",
-            "{crypto}"
-          ]
-        },
-        {
-          "name": "CryptoPriceIntent",
-          "slots": [
-            {
-              "name": "crypto",
-              "type": "AMAZON.Service"
-            }
-          ],
-          "samples": [
-            "what is the price of {crypto}",
-            "{crypto}"
+            "what are the top three cryptos by market cap"
           ]
         },
         {
