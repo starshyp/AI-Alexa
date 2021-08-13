@@ -158,22 +158,22 @@ const CryptoIntentHandler = {
     async handle(handlerInput) {
         let speakOutput = null;
         // let crypto = handlerInput.requestEnvelope.request.intent.slots.crypto.value;
-        const requestOptions = {
-            method: 'GET',
-            uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-            qs: {
-              'start': '1',
-              'limit': '5000',
-              'convert': 'USD'
-            },
-            headers: {
-              'X-CMC_PRO_API_KEY': '9d30f385-6bb2-418e-81e0-fb1a3070fee2'
-            },
-            json: true,
-            gzip: true
-          };
+        // const requestOptions = {
+        //     method: 'GET',
+        //     uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+        //     qs: {
+        //       'start': '1',
+        //       'limit': '5000',
+        //       'convert': 'USD'
+        //     },
+        //     headers: {
+        //       'X-CMC_PRO_API_KEY': '9d30f385-6bb2-418e-81e0-fb1a3070fee2'
+        //     },
+        //     json: true,
+        //     gzip: true
+        //   };
 
-        await getRemoteData(requestOptions)
+        await getRemoteData('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5000&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2')
             .then((response) => {
             let cryptoParsed = JSON.parse(response);
             
@@ -191,7 +191,8 @@ const CryptoIntentHandler = {
             .catch((err) => {
                 console.log(`ERROR: ${err.message}`);
                 // set an optional error message here
-                speakOutput = "Please specify 'bitcoin', 'ethereum', or 'dogecoin'.";
+                // speakOutput = "Please specify 'bitcoin', 'ethereum', or 'dogecoin'.";
+                speakOutput = "Please specify 'what are the top three cryptos'.";
             });
         return handlerInput.responseBuilder
             .speak(speakOutput)
