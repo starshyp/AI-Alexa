@@ -30,6 +30,7 @@ To test on your mobile, or echo device follow these steps (scroll down for scree
 1. "what is the status of elevator {1-600}"
 2. "how many {commercial/residential/hybrid} quotes do we have"
 3. "how many {pending/inprogress} interventions are there"
+4. "what are the top three cryptocurrencies"
 
 ### Notes
 - Additional API endpoints were setup
@@ -59,5 +60,6 @@ To test on your mobile, or echo device follow these steps (scroll down for scree
 
 #### all voice commands - results
 ![](https://lh3.googleusercontent.com/pw/AM-JKLWsGg04GKhiDs-5BThW78no4NlScUQ-kSkfTtyOs1mIuacxRiB6ZXA47px9nWVbCtYFlV6mGEk12EJvWM-CYM8VCINNaoTe4Cx_-QuF8Ank-bEdispR_R6-SplMpc99G1w_xxRaZPFY_kpjwgpK8vDC=w426-h1123-no)
+![](https://lh3.googleusercontent.com/pw/AM-JKLWAxu1d1BMCOlOgL1CoV2zsMsTczkmn0kAg3Yj12yqfWWl4y9B50HdhwCfzXghtPEz8KF38xLAnAlcOjgWtMWKK0xGep09O8I-8MBUdpUKumWbFrfTntM4ATFSXcjKwCih-PAywSQ-L365RTRW--WZk=w399-h157-no)
 
 ----------------
