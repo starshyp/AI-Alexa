@@ -61,6 +61,6 @@ To test on your mobile, or echo device follow these steps (scroll down for scree
 
 #### all voice commands - results
 ![](https://lh3.googleusercontent.com/pw/AM-JKLWsGg04GKhiDs-5BThW78no4NlScUQ-kSkfTtyOs1mIuacxRiB6ZXA47px9nWVbCtYFlV6mGEk12EJvWM-CYM8VCINNaoTe4Cx_-QuF8Ank-bEdispR_R6-SplMpc99G1w_xxRaZPFY_kpjwgpK8vDC=w426-h1123-no)
-![](https://lh3.googleusercontent.com/pw/AM-JKLV9rTtdm4zBZxzmie9IftcnCspqn-FR9UctyPLzIJeNJdxstUWS69VFIZ21mrIoVjH18qNuzMBNiGC63sYoOF7E-5eNAQqgt-qhrg7KFUjl1_lztjSXKy4XoOaZZCB0MBx9FQrdePw0XsOVsIN7R8nY=w398-h197-no)
+![](https://lh3.googleusercontent.com/pw/AM-JKLXNM9U3XWtWQH7fvU6oi7WX5Xk90VRclQEBIHPCD9OWji0X5M0cSnaY_CLSlcZTcMGIcZBv4d04uZa-O5I7XjlwS2c5lWNBImHHE1gUD2fnygvt311LJKHAzD87wHqjBlRPnHUUhOfFAAZmuA-lokDw=w376-h209-no)
 
 ----------------
