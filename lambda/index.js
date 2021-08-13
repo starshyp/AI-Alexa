@@ -246,7 +246,7 @@ const CryptoPriceIntentHandler = {
             //     currency: 'USD',
             //     });
             speakOutput = `The price of ${crypto} is currently ${price} USD.`;
-            speakOutput = `The price of ${crypto} (aka ${cryptoParsed.data.crypto.name}) is currently ${price} USD.`;
+            // speakOutput = `The price of ${crypto} (aka ${cryptoParsed.data.crypto.name}) is currently ${price} USD.`;
                 // }
             // }
             })
