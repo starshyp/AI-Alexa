@@ -35,6 +35,7 @@ To test on your mobile, or echo device follow these steps (scroll down for scree
 ### Notes
 - Additional API endpoints were setup
 - Link to API repo: [Rocket Elevators Foundation - REST API](https://github.com/starshyp/Rocket-Elevators-Foundation-REST-API)
+- Data is fetched from the 'ColbyB' database on Codeboxx's server
 
 ### previews:
 #### email invite
