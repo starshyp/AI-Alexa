@@ -173,24 +173,24 @@ const CryptoIntentHandler = {
         //     gzip: true
         //   };
 
-        await getRemoteData('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5000&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2')
+        await getRemoteData('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2')
         // 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?slug={crypto}&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2'
             .then((response) => {
             let cryptoParsed = JSON.parse(response);
             
-            let price1 = parseFloat(cryptoParsed.data[0].quote.USD.price).toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              });
-            let price2 = parseFloat(cryptoParsed.data[1].quote.USD.price).toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                });
-            let price3 = parseFloat(cryptoParsed.data[2].quote.USD.price).toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                });
-            speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name} at a price of ${price1}, ${cryptoParsed.data[1].name} at a price of ${price2}, and ${cryptoParsed.data[2].name} at a price of ${price3}. All in US dollars.`;
+            // let price1 = parseFloat(cryptoParsed.data[0].quote.USD.price).toLocaleString('en-US', {
+            //     style: 'currency',
+            //     currency: 'USD',
+            //   });
+            // let price2 = parseFloat(cryptoParsed.data[1].quote.USD.price).toLocaleString('en-US', {
+            //     style: 'currency',
+            //     currency: 'USD',
+            //     });
+            // let price3 = parseFloat(cryptoParsed.data[2].quote.USD.price).toLocaleString('en-US', {
+            //     style: 'currency',
+            //     currency: 'USD',
+            //     });
+            // speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name} at a price of ${price1}, ${cryptoParsed.data[1].name} at a price of ${price2}, and ${cryptoParsed.data[2].name} at a price of ${price3}. All in US dollars.`;
 
             // speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name}, ${cryptoParsed.data[1].name}, and ${cryptoParsed.data[2].name}.`;
 
