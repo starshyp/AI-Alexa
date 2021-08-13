@@ -234,7 +234,7 @@ const CryptoPriceIntentHandler = {
             let cryptoParsed = JSON.parse(response);
             for (let i = 0; i < 2200; i += 1) {
             //         if (crypto === cryptoParsed.data[i].name) {
-            let price = parseFloat(cryptoParsed.data[i].quote.USD.price).toLocaleString('en-US', {
+            let price = parseFloat(cryptoParsed.data.i.quote.USD.price).toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD',
                 });
