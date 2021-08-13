@@ -79,6 +79,19 @@
           ]
         },
         {
+        "name": "CryptoPriceIntent",
+        "slots": [
+          {
+            "name": "crypto",
+            "type": "AMAZON.Service"
+          }
+        ],
+        "samples": [
+          "what is the price of {crypto}",
+          "{crypto}"
+        ]
+        },
+        {
           "name": "HelloWorldIntent",
           "slots": [],
           "samples": [
