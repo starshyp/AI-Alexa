@@ -174,6 +174,7 @@ const CryptoIntentHandler = {
         //   };
 
         await getRemoteData('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5000&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2')
+        // 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?slug={crypto}&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2'
             .then((response) => {
             let cryptoParsed = JSON.parse(response);
             
@@ -193,17 +194,17 @@ const CryptoIntentHandler = {
 
             // speakOutput = `The top three cryptocurrencies as of today are ${cryptoParsed.data[0].name}, ${cryptoParsed.data[1].name}, and ${cryptoParsed.data[2].name}.`;
 
-            // for (let i = 0; i < data.length; i += 1) {
-            //     if (crypto === cryptoParsed.data[i].name) {
-            //         let price = parseFloat(cryptoParsed.data[i].quote.USD.price).toLocaleString('en-US', {
-            //             style: 'currency',
-            //             currency: 'USD',
-            //             });
-            //       speakOutput = `The current price of ${cryptoParsed.data[i].name} is ${price}.`;
-            //     } else {
-            //       speakOutput = `Please specify a crypto in the marketplace.`;
-            //     }
-            //   }
+            for (let i = 0; i < cryptoParsed.data.length; i += 1) {
+                if (crypto === cryptoParsed.data[i].name) {
+                    let price = parseFloat(cryptoParsed.data[i].quote.USD.price).toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        });
+                  speakOutput = `The current price of ${cryptoParsed.data[i].name} is ${price} USD.`;
+                } else {
+                  speakOutput = `Please specify a crypto in the marketplace.`;
+                }
+              }
 
             })
             .catch((err) => {
