@@ -221,41 +221,41 @@ const CryptoIntentHandler = {
     }
 };
 
-const CryptoPriceIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CryptoPriceIntent';
-    },
-    async handle(handlerInput) {
-        let speakOutput = null;
-        let crypto = handlerInput.requestEnvelope.request.intent.slots.crypto.value;
+// const CryptoPriceIntentHandler = {
+//     canHandle(handlerInput) {
+//         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+//             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'CryptoPriceIntent';
+//     },
+//     async handle(handlerInput) {
+//         let speakOutput = null;
+//         let crypto = handlerInput.requestEnvelope.request.intent.slots.crypto.value;
 
-        await getRemoteData(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2`)
-            .then((response) => {
-            let cryptoParsed = JSON.parse(response);
-            for (let i = 0; i < cryptoParsed.data.length; i += 1) {
-                    if (crypto === cryptoParsed.data[i].symbol) {
-            let price = parseFloat(cryptoParsed.data[i].quote.USD.price).toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                });
-            speakOutput = `The price of ${crypto} is currently ${price} USD.`;
-            // speakOutput = `The price of ${crypto} (aka ${cryptoParsed.data[crypto].name}) is currently ${price} USD.`;
-                }
-            }
-            })
-            .catch((err) => {
-                console.log(`ERROR: ${err.message}`);
-                // set an optional error message here
-                // speakOutput = "Please specify 'bitcoin', 'ethereum', or 'dogecoin'.";
-                speakOutput = "Please specify the symbol of the cryptocurrency.";
-            });
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt()
-            .getResponse();
-    }
-};
+//         await getRemoteData(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=${crypto}&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2`)
+//             .then((response) => {
+//             let cryptoParsed = JSON.parse(response);
+//             for (let i = 0; i < cryptoParsed.data.length; i += 1) {
+//                     if (crypto === cryptoParsed.data[i].symbol) {
+//             let price = parseFloat(cryptoParsed.data[i].quote.USD.price).toLocaleString('en-US', {
+//                 style: 'currency',
+//                 currency: 'USD',
+//                 });
+//             speakOutput = `The price of ${crypto} is currently ${price} USD.`;
+//             // speakOutput = `The price of ${crypto} (aka ${cryptoParsed.data[crypto].name}) is currently ${price} USD.`;
+//                 }
+//             }
+//             })
+//             .catch((err) => {
+//                 console.log(`ERROR: ${err.message}`);
+//                 // set an optional error message here
+//                 // speakOutput = "Please specify 'bitcoin', 'ethereum', or 'dogecoin'.";
+//                 speakOutput = "Please specify the symbol of the cryptocurrency.";
+//             });
+//         return handlerInput.responseBuilder
+//             .speak(speakOutput)
+//             .reprompt()
+//             .getResponse();
+//     }
+// };
 
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
@@ -402,7 +402,7 @@ exports.handler = Alexa.SkillBuilders.custom()
         QuoteTypeIntentHandler,
         InterventionIntentHandler,
         CryptoIntentHandler,
-        CryptoPriceIntentHandler,
+        // CryptoPriceIntentHandler,
         HelloWorldIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
@@ -413,3 +413,17 @@ exports.handler = Alexa.SkillBuilders.custom()
         ErrorHandler)
     .withCustomUserAgent('sample/hello-world/v1.2')
     .lambda();
+
+    // {
+    //     "name": "CryptoPriceIntent",
+    //     "slots": [
+    //       {
+    //         "name": "crypto",
+    //         "type": "AMAZON.Service"
+    //       }
+    //     ],
+    //     "samples": [
+    //       "what is the price of {crypto}",
+    //       "{crypto}"
+    //     ]
+    //     },
