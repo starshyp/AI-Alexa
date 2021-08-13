@@ -23,7 +23,7 @@ To test on your mobile, or echo device follow these steps (scroll down for scree
 ```
 
 ### Voice Commands
-1. "launch rocket elevators"
+1. "Alexa, launch rocket elevators"
 2. "what is going on at rocket elevators"
 
 #### Bonus (continue from above)
