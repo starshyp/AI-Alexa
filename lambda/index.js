@@ -233,10 +233,10 @@ const CryptoPriceIntentHandler = {
         await getRemoteData(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=${crypto}&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2`)
             .then((response) => {
             let cryptoParsed = JSON.parse(response);
-            let crypto = handlerInput.requestEnvelope.request.intent.slots.crypto.value;
             // for (let i = 0; i < 2200; i += 1) {
             //         if (crypto === cryptoParsed.data[i].name) {
-            let price = parseFloat(cryptoParsed.data.crypto.quote.USD.price).toLocaleString('en-US', {
+                i = crypto;
+            let price = parseFloat(cryptoParsed.data[i].quote.USD.price).toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD',
                 });
