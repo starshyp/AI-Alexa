@@ -233,20 +233,14 @@ const CryptoPriceIntentHandler = {
         await getRemoteData(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=${crypto}&convert=USD&&CMC_PRO_API_KEY=9d30f385-6bb2-418e-81e0-fb1a3070fee2`)
             .then((response) => {
             let cryptoParsed = JSON.parse(response);
-            let cryptoParsed2 = cryptoParsed.data;
-            let cryptoParsed3 = (cryptoParsed2).crypto
-            let price = parseFloat(cryptoParsed3.quote.USD.price).toLocaleString('en-US', {
+            // for (let i = 0; i < 2200; i += 1) {
+            //         if (crypto === cryptoParsed.data[i].name) {
+            let price = parseFloat(cryptoParsed.data[crypto.value].quote.USD.price).toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD',
                 });
-            // for (let i = 0; i < 2200; i += 1) {
-            //         if (crypto === cryptoParsed.data[i].name) {
-            // let price = parseFloat(cryptoParsed.data.{crypto}.quote.USD.price).toLocaleString('en-US', {
-            //     style: 'currency',
-            //     currency: 'USD',
-            //     });
             speakOutput = `The price of ${crypto} is currently ${price} USD.`;
-            // speakOutput = `The price of ${crypto} (aka ${cryptoParsed.data.crypto.name}) is currently ${price} USD.`;
+            // speakOutput = `The price of ${crypto} (aka ${cryptoParsed.data[crypto].name}) is currently ${price} USD.`;
                 // }
             // }
             })
